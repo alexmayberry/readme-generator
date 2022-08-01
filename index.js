@@ -89,7 +89,7 @@ inquirer
     },
 ])
 
-// // TODO: Create a function to write README file
+// // Create a function to write README file
 // function writeToFile(fileName, data) {}
 .then((answers) => {
     console.log(answers);
@@ -97,11 +97,5 @@ inquirer
     fs.writeFile('newREADME.md', mdContent, (err) => 
   err ? console.log(err) : console.log('Success! A README was created')
 );
-  }
-  );
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
+}
+);

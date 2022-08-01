@@ -25,11 +25,11 @@ licenseOptions = [{
 },
 ]
 
-// TODO: Create a function to generate markdown for README
+// Create a function to generate markdown for README
 function generateMarkdown(answers) {
   let licenseBadgeMd = ``;
   renderLicenseBadge(answers);
-    // TODO: Create a function that returns a license badge based on which license is passed in
+    // Create a function that returns a license badge based on which license is passed in
   // If there is no license, return an empty string
   function renderLicenseBadge(answers) {
     const license = answers.license;
