@@ -4,17 +4,13 @@ const fs = require('fs');
 const generateMarkdown = require('./generateMarkdown');
 
 // Create an array of questions for user input
-const questions = 
-
-// TODO how to add a console.log before each question to indicate how many questions are remaining?
-
 inquirer
 .prompt([
-    // TODO y/n promt for table of contents
     {
-    type: 'input',
-    message: 'What type of licenceis connected to your project',
-    name: 'licence',
+    type: 'list',
+    message: 'What is your project licensed as?',
+    choices: ['Apache-2.0', 'GPL-3.0', 'MIT', 'Mozilla Public License 2.0', 'CC0 1.0 Universal', 'No License'],
+    name: 'license',
     },
     {
     type: 'input',
@@ -24,14 +20,18 @@ inquirer
     {
     type: 'input',
     message: 'Add author email',
-    name: 'usage',
+    name: 'email',
     },
     {
     type: 'input',
     message: 'What is your github.com username?',
     name: 'github',
     },
-    // TODO Add a y/n prompt to determine if there are multiple authors
+    {
+    type: 'input',
+    message: 'What is your website URL?',
+    name: 'website',
+    },
     {
     type: 'input',
     message: 'What is the project name',
@@ -44,7 +44,7 @@ inquirer
     },  
     {
     type: 'input',
-    message: 'Add the project repo URL',
+    message: 'Add the project repo name',
     name: 'repo',
     },
     {
@@ -70,17 +70,17 @@ inquirer
     {
     type: 'input',
     message: 'Add constribution instructions',
-    name: 'constribution',
+    name: 'contribute',
     },
     {
     type: 'input',
-    message: 'Add preview image',
+    message: 'Add preview image URL',
     name: 'image',
     },
     {
     type: 'input',
     message: 'Add video-walkthrough link',
-    name: 'walkthrough',
+    name: 'video',
     },
     {
     type: 'input',
@@ -91,8 +91,9 @@ inquirer
 
 // // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
-.then((response) => {
-    let mdContent = generateMarkdown(data);
+.then((answers) => {
+    console.log(answers);
+    let mdContent = generateMarkdown(answers);
     fs.writeFile('newREADME.md', mdContent, (err) => 
   err ? console.log(err) : console.log('Success! A README was created')
 );
