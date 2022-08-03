@@ -80,7 +80,7 @@ function generateMarkdown(answers) {
 
   ${answers.author}
 
-  ### Contact me
+  ## Contact Me
 
   **Github:** [${answers.github}](https://github.io/${answers.github})
 
