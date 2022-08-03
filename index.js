@@ -94,7 +94,7 @@ inquirer
 .then((answers) => {
     console.log(answers);
     let mdContent = generateMarkdown(answers);
-    fs.writeFile('newREADME.md', mdContent, (err) => 
+    fs.writeFile('README.md', mdContent, (err) => 
   err ? console.log(err) : console.log('Success! A README was created')
 );
 }

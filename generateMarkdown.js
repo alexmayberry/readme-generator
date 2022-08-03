@@ -1,26 +1,38 @@
 // Store license options information
 licenseOptions = [{
   name: 'Apache-2.0',
+  noSpaceName: 'Apache-2.0',
+  color: 'blue',
   URL: 'https://opensource.org/licenses/Apache-2.0'
 },
 {
   name: 'GPL-3.0',
+  noSpaceName: 'GPL-3.0',
+  color: 'green',
   URL: 'https://opensource.org/licenses/GPL-3.0'
 },
 {
   name: 'MIT',
+  noSpaceName: 'MIT',
+  color: 'green',
   URL: 'https://opensource.org/licenses/MIT'
 },
 {
   name: 'Mozilla Public License 2.0',
+  noSpaceName: 'MPL-2.0',
+  color: 'blue',
   URL: 'https://opensource.org/licenses/MPL-2.0'
 },
 {
   name: 'CC0 1.0 Universal',
+  noSpaceName: 'CC0-1.0-Universal',
+  color: 'red',
   URL: 'https://creativecommons.org/publicdomain/zero/1.0/'
 },
 {
   name: 'No License',
+  noSpaceName: 'No-License',
+  color: 'lightgrey',
   URL: ''
 },
 ]
@@ -35,7 +47,7 @@ function generateMarkdown(answers) {
     const license = answers.license;
     for (let i = 0; i < licenseOptions.length; i++) {
       if (license === licenseOptions[i].name) {
-      licenseBadgeMd =`[![License: ${license}](https://img.shields.io/static/v1?label=License&message=${license}&color=Green)](${licenseOptions[i].URL})`;
+      licenseBadgeMd =`[![License: ${license}](https://img.shields.io/static/v1?label=License&message=${licenseOptions[i].noSpaceName}&color=${licenseOptions[i].color})](${licenseOptions[i].URL})`;
        generateMarkdown(licenseBadgeMd);
       }
     }
