@@ -1,5 +1,5 @@
 // Store license options information
-licenseOptions = [{
+let licenseOptions = [{
   name: 'Apache-2.0',
   noSpaceName: 'Apache-2.0',
   color: 'blue',
@@ -126,10 +126,9 @@ function generateMarkdown(answers) {
 
   ## Questions
 
-  ${answers.issues}
-
-
-  `;
+  ${answers.issues}`;
 }
 
-module.exports = generateMarkdown;
+// module.exports = generateMarkdown;
+
+export default generateMarkdown
