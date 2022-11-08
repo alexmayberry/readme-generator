@@ -1,7 +1,7 @@
 // Include packages needed for this application
-import inquirer from 'inquirer'
-import clipboard from 'clipboardy'
-import generateMarkdown from './generateMarkdown.js';
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
 
 // Create an array of questions for user input
 inquirer
@@ -94,6 +94,8 @@ inquirer
 .then((answers) => {
     console.log(answers);
     let mdContent = generateMarkdown(answers);
-    clipboard.writeSync(mdContent);
+    fs.writeFile('newREADME.md', mdContent, (err) => 
+  err ? console.log(err) : console.log('Success! A README was created')
+);
 }
 );
